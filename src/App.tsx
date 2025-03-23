@@ -38,7 +38,6 @@ function App() {
     <div>
       <h2>Search products</h2>
       <input type="text" placeholder="Search..." />
-
       <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
         {products.map((product) => (
           <ProductCard key={product.id} {...product} />
