@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import ProductCard from "./components/ProductCard";
+
+const products = [
+  {
+    id: 1,
+    title: "Product 1",
+    price: 10,
+    description: "This is a description of product 1",
+  },
+  {
+    id: 2,
+    title: "Product 2",
+    price: 20,
+    description: "This is a description of product 2",
+  },
+  {
+    id: 3,
+    title: "Product 3",
+    price: 30,
+    description: "This is a description of product 3",
+  },
+  {
+    id: 4,
+    title: "Product 4",
+    price: 40,
+    description: "This is a description of product 4",
+  },
+  {
+    id: 5,
+    title: "Product 5",
+    price: 50,
+    description: "This is a description of product 5",
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <h2>Search products</h2>
+      <input type="text" placeholder="Search..." />
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
+        {products.map((product) => (
+          <ProductCard key={product.id} {...product} />
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
