@@ -9,3 +9,15 @@ createRoot(
     <App />
   </StrictMode>
 );
+
+class ProductElement extends HTMLElement {
+  connectedCallback() {
+    createRoot(this.attachShadow({ mode: "open" })).render(
+      <StrictMode>
+        <App />
+      </StrictMode>
+    );
+  }
+}
+
+customElements.define("mfe-product", ProductElement);
