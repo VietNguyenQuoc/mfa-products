@@ -5,4 +5,9 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "https://mfa-products-production.up.railway.app/",
+  build: {
+    rollupOptions: {
+      external: ["react", /react-dom/],
+    },
+  },
 });
