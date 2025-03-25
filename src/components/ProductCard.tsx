@@ -6,6 +6,7 @@ interface ProductCardProps {
   description: string;
   price: number;
   imageUrl?: string;
+  onClick?: () => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -13,6 +14,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   description,
   price,
   imageUrl,
+  onClick,
 }) => {
   return (
     <div className="product-card">
@@ -22,6 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <p className="product-description">{description}</p>
         <p className="product-price">${price.toFixed(2)}</p>
       </div>
+      <button onClick={onClick}>Add</button>
     </div>
   );
 };

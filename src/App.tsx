@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ProductCard from "./components/ProductCard";
 
 const products = [
@@ -40,7 +41,17 @@ function App() {
       <input type="text" placeholder="Search..." />
       <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
         {products.map((product) => (
-          <ProductCard key={product.id} {...product} />
+          <ProductCard
+            key={product.id}
+            {...product}
+            onClick={() =>
+              dispatchEvent(
+                new CustomEvent("mfe-cart:add-to-cart", {
+                  detail: { id: product.id, name: product.title },
+                })
+              )
+            }
+          />
         ))}
       </div>
     </div>
